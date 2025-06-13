@@ -1,0 +1,9 @@
+{
+    "name": "@repo/biome",
+    "main": "biome.json",
+    "private": true,
+    "version": "0.0.0",
+    "devDependencies": {
+        "@biomejs/biome": "1.9.4"
+    }
+}
