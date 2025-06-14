@@ -23,6 +23,15 @@ importers:
 
   config/typescript-config: {}
 
+  packages/auth:
+    devDependencies:
+      '@repo/biome':
+        specifier: workspace:*
+        version: link:../../config/biome
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../../config/typescript-config
+
 packages:
 
   '@biomejs/biome@1.9.4':
