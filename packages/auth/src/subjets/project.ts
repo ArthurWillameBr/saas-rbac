@@ -1,3 +1,1 @@
-export type ProjectSubject = [
-    'create' | "manage" | "delete", 'Project'
-]
+export type ProjectSubject = ["create" | "manage" | "delete", "Project"];

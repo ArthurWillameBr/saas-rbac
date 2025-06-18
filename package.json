@@ -1,19 +1,19 @@
 {
-  "name": "my-turborepo",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "biome format .",
-    "check": "biome check --apply ."
-  },
-  "devDependencies": {
-    "turbo": "^2.5.4",
-    "@repo/biome": "workspace:*"
-  },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=18"
-  }
+	"name": "my-turborepo",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint",
+		"format": "cd config/biome && pnpm exec biome format ../.. --config-path . --write",
+		"check": "cd config/biome && pnpm exec biome check ../.. --config-path . --apply"
+	},
+	"devDependencies": {
+		"turbo": "^2.5.4",
+		"@repo/biome": "workspace:*"
+	},
+	"packageManager": "pnpm@9.0.0",
+	"engines": {
+		"node": ">=18"
+	}
 }
