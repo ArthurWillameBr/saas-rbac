@@ -11,4 +11,4 @@ export const billingSubject = z.tuple([
 	z.literal("Billing"),
 ]);
 
-export type ProjectSubject = z.infer<typeof billingSubject>;
+export type BillingSubject = z.infer<typeof billingSubject>;

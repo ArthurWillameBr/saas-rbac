@@ -11,4 +11,4 @@ export const organizationSubject = z.tuple([
 	z.literal("Organization"),
 ]);
 
-export type ProjectSubject = z.infer<typeof organizationSubject>;
+export type OrganizationSubject = z.infer<typeof organizationSubject>;
