@@ -5,15 +5,19 @@
 	"main": "src/index.ts",
 	"types": "src/index.ts",
 	"scripts": {
-		"dev": "tsx watch src/index.ts"
+		"dev": "tsx watch src/http/server.ts"
 	},
 	"devDependencies": {
 		"@repo/biome": "workspace:*",
 		"@repo/tsconfig": "workspace:*"
 	},
 	"dependencies": {
+		"@fastify/cors": "^11.0.1",
+		"@repo/auth": "workspace:*",
 		"@types/node": "^24.0.3",
+		"fastify": "^5.4.0",
+		"fastify-type-provider-zod": "^5.0.1",
 		"tsx": "^4.20.3",
-		"@repo/auth": "workspace:*"
+		"zod": "^3.25.67"
 	}
 }
