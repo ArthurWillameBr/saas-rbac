@@ -9,10 +9,12 @@
 	},
 	"devDependencies": {
 		"@repo/biome": "workspace:*",
-		"@repo/tsconfig": "workspace:*"
+		"@repo/tsconfig": "workspace:*",
+		"prisma": "^6.10.1"
 	},
 	"dependencies": {
 		"@fastify/cors": "^11.0.1",
+		"@prisma/client": "6.10.1",
 		"@repo/auth": "workspace:*",
 		"@types/node": "^24.0.3",
 		"fastify": "^5.4.0",
