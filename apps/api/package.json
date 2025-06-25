@@ -8,9 +8,13 @@
 		"dev": "tsx watch src/http/server.ts"
 	},
 	"devDependencies": {
+		"@faker-js/faker": "^9.8.0",
 		"@repo/biome": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
 		"prisma": "^6.10.1"
+	},
+	"prisma": {
+		"seed": "tsx prisma/seed.ts"
 	},
 	"dependencies": {
 		"@fastify/cors": "^11.0.1",
