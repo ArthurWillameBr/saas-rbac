@@ -17,6 +17,14 @@ export async function authenticateWithPassword(app: FastifyInstance) {
             tags: ["Auth"],
             summary: "Authenticate with password",
             body: authenticateWithPasswordSchema,
+            response: {
+                201: z.object({
+                    token: z.string(),
+                }),
+                400: z.object({
+                    message: z.string(),
+                }),
+            }
         }
     }, async (request, reply) => {
         const { email, password } = request.body
