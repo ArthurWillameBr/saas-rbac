@@ -1,12 +1,12 @@
-import { compare } from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { NotFoundError } from "../_errors/not-found-error";
+import { auth } from "@/http/middlewares/auth";
 
 export async function getProfile(app: FastifyInstance) {
-    app.withTypeProvider<ZodTypeProvider>().get(
+    app.withTypeProvider<ZodTypeProvider>().register(auth).get(
         "/profile", 
         {
         schema: {
@@ -24,7 +24,7 @@ export async function getProfile(app: FastifyInstance) {
             }
         }
     }, async (request, reply) => {
-       const { sub } = await request.jwtVerify<{ sub: string }>()
+       const userId = await request.getCurrentUserId()
 
        const user = await prisma.user.findUnique({
         select: {
@@ -34,7 +34,7 @@ export async function getProfile(app: FastifyInstance) {
             avatarUrl: true,
         },
         where: {
-            id: sub,
+            id: userId,
         }
        })
 
