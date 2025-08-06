@@ -32,6 +32,15 @@ importers:
       '@prisma/client':
         specifier: 5.12.1
         version: 5.12.1(prisma@5.22.0)
+      '@repo/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
+      '@scalar/fastify-api-reference':
+        specifier: ^1.34.2
+        version: 1.34.2
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
@@ -61,7 +70,7 @@ importers:
         specifier: ^20.12.6
         version: 20.19.2
       dotenv-cli:
-        specifier: ^7.4.1
+        specifier: ^7.4.4
         version: 7.4.4
       prisma:
         specifier: ^5.12.1
@@ -96,6 +105,25 @@ importers:
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../config/typescript-config
+
+  packages/env:
+    dependencies:
+      '@t3-oss/env-nextjs':
+        specifier: ^0.13.8
+        version: 0.13.8(zod@3.25.67)
+      zod:
+        specifier: ^3.25.67
+        version: 3.25.67
+    devDependencies:
+      '@repo/biome':
+        specifier: workspace:*
+        version: link:../../config/biome
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../../config/typescript-config
+      '@types/node':
+        specifier: ^20.12.6
+        version: 20.19.2
 
 packages:
 
@@ -497,6 +525,60 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@scalar/core@0.3.11':
+    resolution: {integrity: sha512-4O3mC29k2STz4quBHrpsl6czxi94F3dy8Ej/OPbELS2myKO4GoxromT0BiKSLPAThCnmJ0rqMZ7k9NsgzVjEgA==}
+    engines: {node: '>=20'}
+
+  '@scalar/fastify-api-reference@1.34.2':
+    resolution: {integrity: sha512-60gkrICnbAEfaRN/Yd/6ZUK9RsSJDVBNevDPhSPKaAZiSSub9q2QwD/88eIXQajHbMLZNt22QIFLKqdfmVdWCg==}
+    engines: {node: '>=20'}
+
+  '@scalar/openapi-parser@0.19.0':
+    resolution: {integrity: sha512-U1FDug4NFK+o1ib93L2MerW13s61sEDPDgrmO14mp5qAV5iYkC2l0KqKQLMIbt3sWw6fDy900eXNKIgUuge4BA==}
+    engines: {node: '>=20'}
+
+  '@scalar/openapi-types@0.3.7':
+    resolution: {integrity: sha512-QHSvHBVDze3+dUwAhIGq6l1iOev4jdoqdBK7QpfeN1Q4h+6qpVEw3EEqBiH0AXUSh/iWwObBv4uMgfIx0aNZ5g==}
+    engines: {node: '>=20'}
+
+  '@scalar/types@0.2.11':
+    resolution: {integrity: sha512-SUZzGmoisWsYv33LmmT/ajvSlcl9ZDj9d5RncJ+wB9ZQ2l018xlfpDIH9Kdfo+6KCKQOe3LYLXfH4Lzm891Mag==}
+    engines: {node: '>=20'}
+
+  '@t3-oss/env-core@0.13.8':
+    resolution: {integrity: sha512-L1inmpzLQyYu4+Q1DyrXsGJYCXbtXjC4cICw1uAKv0ppYPQv656lhZPU91Qd1VS6SO/bou1/q5ufVzBGbNsUpw==}
+    peerDependencies:
+      arktype: ^2.1.0
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
+    peerDependenciesMeta:
+      arktype:
+        optional: true
+      typescript:
+        optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
+
+  '@t3-oss/env-nextjs@0.13.8':
+    resolution: {integrity: sha512-QmTLnsdQJ8BiQad2W2nvV6oUpH4oMZMqnFEjhVpzU0h3sI9hn8zb8crjWJ1Amq453mGZs6A4v4ihIeBFDOrLeQ==}
+    peerDependencies:
+      arktype: ^2.1.0
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
+    peerDependenciesMeta:
+      arktype:
+        optional: true
+      typescript:
+        optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
+
   '@types/bcryptjs@2.4.6':
     resolution: {integrity: sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==}
 
@@ -525,6 +607,14 @@ packages:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  ajv-draft-04@1.0.0:
+    resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
+    peerDependencies:
+      ajv: ^8.5.0
+    peerDependenciesMeta:
+      ajv:
+        optional: true
 
   ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
@@ -760,6 +850,9 @@ packages:
   get-tsconfig@4.10.1:
     resolution: {integrity: sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==}
 
+  github-slugger@2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
+
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
@@ -802,6 +895,14 @@ packages:
 
   json-schema-traverse@1.0.0:
     resolution: {integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==}
+
+  jsonpointer@5.0.1:
+    resolution: {integrity: sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==}
+    engines: {node: '>=0.10.0'}
+
+  leven@4.0.0:
+    resolution: {integrity: sha512-puehA3YKku3osqPlNuzGDUHq8WpwXupUg1V6NXdV38G+gr+gkBwFC8g1b/+YcIvp8gnqVIus+eJCH/eGsRmJNw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   light-my-request@5.14.0:
     resolution: {integrity: sha512-aORPWntbpH5esaYpGOOmri0OHDOe3wC5M2MQxZ9dvMLZm6DnaAn0kJlcbU9hwsQgLzmZyReKwFwwPkR+nHu5kA==}
@@ -859,6 +960,11 @@ packages:
 
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
+
+  nanoid@5.1.5:
+    resolution: {integrity: sha512-Ir/+ZpE9fDsNH0hQ3C68uyThDXzYcim2EqcZ8zn8Chtt1iylPT9xXJB0kPCnqzgcEGikO9RxSrh63MsmVCU7Fw==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
 
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
@@ -1200,6 +1306,9 @@ packages:
     peerDependencies:
       zod: ^3.24.1
 
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+
   zod@3.25.67:
     resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
 
@@ -1503,6 +1612,48 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.44.1':
     optional: true
 
+  '@scalar/core@0.3.11':
+    dependencies:
+      '@scalar/types': 0.2.11
+
+  '@scalar/fastify-api-reference@1.34.2':
+    dependencies:
+      '@scalar/core': 0.3.11
+      '@scalar/openapi-parser': 0.19.0
+      '@scalar/openapi-types': 0.3.7
+      fastify-plugin: 4.5.1
+      github-slugger: 2.0.0
+
+  '@scalar/openapi-parser@0.19.0':
+    dependencies:
+      '@scalar/openapi-types': 0.3.7
+      ajv: 8.17.1
+      ajv-draft-04: 1.0.0(ajv@8.17.1)
+      ajv-formats: 3.0.1(ajv@8.17.1)
+      jsonpointer: 5.0.1
+      leven: 4.0.0
+      yaml: 2.8.0
+
+  '@scalar/openapi-types@0.3.7':
+    dependencies:
+      zod: 3.24.1
+
+  '@scalar/types@0.2.11':
+    dependencies:
+      '@scalar/openapi-types': 0.3.7
+      nanoid: 5.1.5
+      zod: 3.24.1
+
+  '@t3-oss/env-core@0.13.8(zod@3.25.67)':
+    optionalDependencies:
+      zod: 3.25.67
+
+  '@t3-oss/env-nextjs@0.13.8(zod@3.25.67)':
+    dependencies:
+      '@t3-oss/env-core': 0.13.8(zod@3.25.67)
+    optionalDependencies:
+      zod: 3.25.67
+
   '@types/bcryptjs@2.4.6': {}
 
   '@types/estree@1.0.8': {}
@@ -1530,6 +1681,10 @@ snapshots:
   abstract-logging@2.0.1: {}
 
   acorn@8.15.0: {}
+
+  ajv-draft-04@1.0.0(ajv@8.17.1):
+    optionalDependencies:
+      ajv: 8.17.1
 
   ajv-formats@2.1.1(ajv@8.17.1):
     optionalDependencies:
@@ -1782,6 +1937,8 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
+  github-slugger@2.0.0: {}
+
   glob@10.4.5:
     dependencies:
       foreground-child: 3.3.1
@@ -1831,6 +1988,10 @@ snapshots:
       - supports-color
 
   json-schema-traverse@1.0.0: {}
+
+  jsonpointer@5.0.1: {}
+
+  leven@4.0.0: {}
 
   light-my-request@5.14.0:
     dependencies:
@@ -1886,6 +2047,8 @@ snapshots:
       any-promise: 1.3.0
       object-assign: 4.1.1
       thenify-all: 1.6.0
+
+  nanoid@5.1.5: {}
 
   object-assign@4.1.1: {}
 
@@ -2212,5 +2375,7 @@ snapshots:
   zod-to-json-schema@3.24.6(zod@3.25.67):
     dependencies:
       zod: 3.25.67
+
+  zod@3.24.1: {}
 
   zod@3.25.67: {}

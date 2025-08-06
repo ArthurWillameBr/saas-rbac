@@ -1,7 +1,7 @@
 import fastifyCors from "@fastify/cors";
 import fastifyJwt from "@fastify/jwt";
 import fastifySwagger from "@fastify/swagger";
-import fastifySwaggerUI from "@fastify/swagger-ui";
+import scalarFastifyApiReference from "@scalar/fastify-api-reference";
 import fastify from "fastify";
 import {
 	jsonSchemaTransform,
@@ -30,19 +30,24 @@ app.register(fastifySwagger, {
 			description: "Sample backend service",
 			version: "1.0.0",
 		},
-		servers: [],
+		components: {
+			securitySchemes: {
+				bearerAuth: {
+					type: "http",
+					scheme: "bearer",
+					bearerFormat: "JWT",
+				},
+			},
+		},
 	},
 	transform: jsonSchemaTransform,
-
-	// You can also create transform with custom skiplist of endpoints that should not be included in the specification:
-	//
-	// transform: createJsonSchemaTransform({
-	//   skipList: [ '/documentation/static/*' ]
-	// })
 });
 
-app.register(fastifySwaggerUI, {
+app.register(scalarFastifyApiReference, {
 	routePrefix: "/documentation",
+	configuration: {
+		theme: "kepler",
+	},
 });
 
 app.register(fastifyJwt, {
