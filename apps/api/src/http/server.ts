@@ -19,6 +19,8 @@ import { createOrganization } from "./routes/orgs/create-org";
 import { getMembership } from "./routes/orgs/get-membership";
 import { getOrganization } from "./routes/orgs/get-organization";
 import { getOrganizations } from "./routes/orgs/get-organizations";
+import { shutdownOrganization } from "./routes/orgs/shutdown-organization";
+import { transferOrganization } from "./routes/orgs/transfer-organization";
 import { updateOrganization } from "./routes/orgs/update-organization";
 
 const app = fastify();
@@ -72,6 +74,8 @@ app.register(getMembership);
 app.register(getOrganization);
 app.register(getOrganizations);
 app.register(updateOrganization);
+app.register(shutdownOrganization);
+app.register(transferOrganization);
 
 app.listen({ port: 3333, host: "0.0.0.0" }).then(() => {
 	console.log("HTTP server running!");
